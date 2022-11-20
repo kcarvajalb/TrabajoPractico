@@ -1,64 +1,101 @@
 // Import stylesheets
 import './style.css';
+/*
+jQuery.get('https://drive.google.com/file/d/1zHdYOuojtoEdn9_86QCEaNJbD7OcIITg/view?usp=sharing', function (csvdata) {
+  console.log(csvdata);
+});*/
 
-//Gráfico 1 de columnas
-var visualization1 = d3plus
-  .viz()
-  .container('#viz1')
-  .data([
-    { year: 1991, name: 'alpha', value: 15 },
-    { year: 1992, name: 'alpha', value: 20 },
-  ])
-  .type('bar')
-  .id('name')
-  .x('year')
-  .y('value')
-  .draw();
-
-//Gráfico 2 de barras
-d3.json(
-  'https://raw.githubusercontent.com/raul27868/07MBIG-Visualizacion-Actividades-Guiadas/master/columnas.json',
-  function (data) {
-    var visualization2 = d3plus
-      .viz()
-      .container('#viz2')
-      .data(data)
-      .type('bar')
-      .id('name')
-      .x('year')
-      .y('value')
-      .axes({ ticks: 'false' })
-      .draw();
-  }
-);
-
-//Gráfico 3 de Caja y Bigotes
-var data = [
-  { year: 1991, name: 'alpha', value: 15 },
-  { year: 1992, name: 'alpha', value: 34 },
-  { year: 1991, name: 'alpha2', value: 17 },
-  { year: 1992, name: 'alpha2', value: 65 },
-  { year: 1991, name: 'beta', value: 10 },
-  { year: 1992, name: 'beta', value: 10 },
-  { year: 1991, name: 'beta2', value: 40 },
-  { year: 1992, name: 'beta2', value: 38 },
-  { year: 1991, name: 'gamma', value: 5 },
-  { year: 1992, name: 'gamma', value: 10 },
-  { year: 1991, name: 'gamma2', value: 20 },
-  { year: 1992, name: 'gamma2', value: 34 },
-  { year: 1991, name: 'delta', value: 50 },
-  { year: 1992, name: 'delta', value: 43 },
-  { year: 1991, name: 'delta2', value: 17 },
-  { year: 1992, name: 'delta2', value: 35 },
+let arr_categorias = ['Africaa', 'America', 'Asia', 'Europe', 'Oceania'];
+let series_data = [
+  {
+    name: 'Year 1990',
+    data: [631, 727, 3202, 721, 26],
+  },
+  {
+    name: 'Year 2000',
+    data: [814, 841, 3714, 726, 31],
+  },
+  {
+    name: 'Year 2010',
+    data: [1044, 944, 4170, 735, 40],
+  },
+  {
+    name: 'Year 2018',
+    data: [1276, 1007, 4561, 746, 42],
+  },
 ];
+/*
+$.ajax({
+  url: 'http://data.insideairbnb.com/united-states/dc/washington-dc/2022-09-14/visualisations/listings.csv',
+  type: 'GET',
+  headers: { 'Access-Control-Allow-Origin': 'http://data.insideairbnb.com' },
+  crossDomain: true,
+  dataType: 'text/csv',
+  success: function (response) {
+    console.log('respuestaaf');
+    console.log(response);
+  },
+  error: function (xhr, status) {
+    console.log('error');
+  },
+});
+*/
 
-var visualization3 = d3plus
-  .viz()
-  .container('#viz3')
-  .data(data)
-  .type('box')
-  .id('name')
-  .x('year')
-  .y('value')
-  .axes({ ticks: false })
-  .draw();
+Highcharts.chart('container', {
+  chart: {
+    type: 'bar',
+  },
+  title: {
+    text: 'Precio de alojamiento por tipo de habitación',
+  },
+  data: {
+    csvURL: 'https://demo-live-data.highcharts.com/vs-load.csv',
+    enablePolling: true,
+    dataRefreshRate: 1,
+  },
+  subtitle: {
+    text: 'Source',
+  },
+  xAxis: {
+    categories: arr_categorias,
+    title: {
+      text: null,
+    },
+  },
+  yAxis: {
+    min: 0,
+    title: {
+      text: 'Precio (USD)',
+      align: 'high',
+    },
+    labels: {
+      overflow: 'justify',
+    },
+  },
+  tooltip: {
+    valueSuffix: ' USD',
+  },
+  plotOptions: {
+    bar: {
+      dataLabels: {
+        enabled: true,
+      },
+    },
+  },
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'top',
+    x: -40,
+    y: 80,
+    floating: true,
+    borderWidth: 1,
+    backgroundColor:
+      Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
+    shadow: true,
+  },
+  credits: {
+    enabled: false,
+  },
+  series: series_data,
+});
