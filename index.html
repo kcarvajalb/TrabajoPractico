@@ -11,50 +11,161 @@
   />
 </head>
 
-<h3>
-  <b>Nombre: </b> Karen Patricia Carvajal Barreto <br />
-  <b>Url:</b>
-  <a href="https://js-sydu4k.stackblitz.io"> https://js-sydu4k.stackblitz.io </a
-  ><br />
-  <b>GitHub:</b>
-  <a href="https://github.com/kcarvajalb/TrabajoPractico">
-    https://github.com/kcarvajalb/TrabajoPractico </a
-  ><br />
-  <b>Hoja de cálculo de google:</b>
-  <a
-    href="https://docs.google.com/spreadsheets/d/13WO_8ImAsLrCMzUaOG1maANbjtCUxvtuQYN5OLa2zuQ/edit?usp=sharing"
-  >
-    https://docs.google.com/spreadsheets/d/13WO_8ImAsLrCMzUaOG1maANbjtCUxvtuQYN5OLa2zuQ/edit?usp=sharing </a
-  ><br />
-  <b>Google Colab:</b>
-  <a
-    href="https://colab.research.google.com/drive/1fCDlL_wGE_32A7QTV8Zi0KFQInkeexBk?authuser=1#scrollTo=U9Xr9OSOLpe-"
-  >
-    https://colab.research.google.com/drive/1fCDlL_wGE_32A7QTV8Zi0KFQInkeexBk?authuser=1#scrollTo=U9Xr9OSOLpe- </a
-  ><br />
-</h3>
+<body>
+  <div class="contenedor">
+    <h1 style="text-align: center">
+      Análisis de precios para alquiler de alojamientos en la plataforma Airbnb
+      en la ciudad de Washington D.C.
+    </h1>
+    <h3>
+      <b>Nombre: </b> Karen Patricia Carvajal Barreto <br />
+      <b>Url:</b>
+      <a href="https://js-sydu4k.stackblitz.io">
+        https://js-sydu4k.stackblitz.io </a
+      ><br />
+      <b>GitHub:</b>
+      <a href="https://github.com/kcarvajalb/TrabajoPractico">
+        https://github.com/kcarvajalb/TrabajoPractico </a
+      ><br />
+      <b>Hoja de cálculo de google:</b>
+      <a
+        href="https://docs.google.com/spreadsheets/d/13WO_8ImAsLrCMzUaOG1maANbjtCUxvtuQYN5OLa2zuQ/edit?usp=sharing"
+      >
+        https://docs.google.com/spreadsheets/d/13WO_8ImAsLrCMzUaOG1maANbjtCUxvtuQYN5OLa2zuQ/edit?usp=sharing </a
+      ><br />
+      <b>Google Colab:</b>
+      <a
+        href="https://colab.research.google.com/drive/1fCDlL_wGE_32A7QTV8Zi0KFQInkeexBk?authuser=1#scrollTo=U9Xr9OSOLpe-"
+      >
+        https://colab.research.google.com/drive/1fCDlL_wGE_32A7QTV8Zi0KFQInkeexBk?authuser=1#scrollTo=U9Xr9OSOLpe- </a
+      ><br />
+    </h3>
 
-<h1>
-  Análisis de precios de alquiler de alojamientos para uso turístico en la
-  plataforma Airbnb en la ciudad de Washington D.C.
-</h1>
+    <h3>
+      <b>Nota</b>: Este tema de Airbnb tiene que ver con el tema elegido para mi
+      TFM (T-022 Airbnb, sostenibilidad urbana, análisis de datos espaciales),
+      en este trabajo pretendo iniciar con un análisis exploratorio del tema y
+      de los datos.
+    </h3>
 
-<h4>
-  Gráficas de Google Sheet
-  <a
-    href="https://docs.google.com/spreadsheets/d/1DLO7HDR8h22r47uFMfTPtoOCxHG3EVaLpCc5tq8t6Co/edit#gid=0"
-    target="_blank"
-    style="font-size: 10px"
-  >
-    Ir al enlace de Google Sheet </a
-  ><br />
-</h4>
+    <div style="text-align: center" class="titulo">Introducción</div>
 
-<figure class="highcharts-figure">
-  <div id="container"></div>
-  <p class="highcharts-description">
-    Bar chart showing horizontal columns. This chart type is often beneficial
-    for smaller screens, as the user can scroll through the data vertically, and
-    axis labels are easy to read.
-  </p>
-</figure>
+    <p>
+      Airbnb es una plataforma online que se encarga de ofrecer diferentes
+      alternativas de alquiler de alojamientos para diferentes tipos de
+      clientes, ya sea los que viajan por negocios, vacaciones u otras labores.
+      El precio de alquiler varía en cuanto a los distintos servicios y
+      características que ofrezca, así como del tamaño, número de habitaciones,
+      si es compartida o no, si es una vivienda, cabaña o penthouse, entre otras
+      características, todo dependerá de las necesidades y del presupuesto que
+      tenga el cliente. Estos alojamientos son ofrecidos por “hosts”, los cuales
+      son los dueños y éstos son los que definen el precio.
+    </p>
+    <p>
+      El turismo se ha convertido en una de las fuentes económicas más
+      importante para un país. Cuando una persona se va de viaje, ya sea por
+      negocios, vacaciones, etc., necesitará un espacio donde alojarse, y, por
+      otro lado, están las personas que tienen alguna propiedad sin usar y
+      quieren ofrecerla para poder generar ingresos extras.
+    </p>
+
+    <div style="text-align: center" class="titulo">Objetivos</div>
+
+    <p>
+      Dentro de los objetivos principales de este tipo de negocios es determinar
+      el precio en el que se alquila una propiedad, por lo tanto, se pretende
+      analizar los precios en los que se alquila una propiedad y encontrar
+      patrones en los datos que ayuden a determinar las variables que influyen
+      en el precio.
+    </p>
+
+    <p>
+      Para ello se pretenden responder las siguientes preguntas: <br/>
+      1. ¿El vecindario en donde está ubicado el inmueble influye en el precio de alquiler? <br/>
+      2. ¿Influye en el precio de alquiler del alojamiento el tipo de habitación? <br/>
+      3. ¿Influye en el precio de alquiler del alojamiento el tipo de alojamiento? <br/>
+      4. ¿Influye en el precio de alquiler el número de dormitorios y número de guests permitidos en Airbnb en la ciudad de Washington? <br/>
+      5. ¿Los hosts pueden tener más de 1 propiedad? <br/>
+    </p>
+
+    <h4>
+      Gráficas de Google Sheet
+      <a
+        href="https://docs.google.com/spreadsheets/d/1DLO7HDR8h22r47uFMfTPtoOCxHG3EVaLpCc5tq8t6Co/edit#gid=0"
+        target="_blank"
+        style="font-size: 10px"
+      >
+        Ir al enlace de Google Sheet </a
+      ><br />
+    </h4>
+
+    <div width="50%" style="text-align: center">
+      <iframe
+        width="919"
+        height="569"
+        style="border: 1px solid black"
+        seamless
+        frameborder="0"
+        scrolling="no"
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR88XdkWkibYs9pdP8y9o-Y2IjvEEFQ183NdyMMpStAgbLdwJHav_XdqahhlGCxLu_vsdYEL-O5ao8C/pubchart?oid=907869004&amp;format=interactive"
+      ></iframe>
+
+      <h5 style="text-align: center">
+        Fuente: Elaboración propia <br />
+        Enlace:
+        https://docs.google.com/spreadsheets/d/13WO_8ImAsLrCMzUaOG1maANbjtCUxvtuQYN5OLa2zuQ/edit#gid=1823363599
+      </h5>
+    </div>
+
+    <div width="50%" style="text-align: center">
+      <iframe
+        width="909"
+        height="563"
+        style="border: 1px solid black"
+        seamless
+        frameborder="0"
+        scrolling="no"
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR88XdkWkibYs9pdP8y9o-Y2IjvEEFQ183NdyMMpStAgbLdwJHav_XdqahhlGCxLu_vsdYEL-O5ao8C/pubchart?oid=148204037&amp;format=interactive"
+      ></iframe>
+      <h5 style="text-align: center">
+        Fuente: Elaboración propia <br />
+        Enlace:
+        https://docs.google.com/spreadsheets/d/13WO_8ImAsLrCMzUaOG1maANbjtCUxvtuQYN5OLa2zuQ/edit#gid=1422306557
+      </h5>
+    </div>
+    <div width="50%" style="text-align: center">
+      <iframe
+        width="900"
+        height="558"
+        style="border: 1px solid black"
+        seamless
+        frameborder="0"
+        scrolling="no"
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR88XdkWkibYs9pdP8y9o-Y2IjvEEFQ183NdyMMpStAgbLdwJHav_XdqahhlGCxLu_vsdYEL-O5ao8C/pubchart?oid=752289343&amp;format=interactive"
+      ></iframe>
+      <h5 style="text-align: center">
+        Fuente: Elaboración propia <br />
+        Enlace:
+        https://docs.google.com/spreadsheets/d/13WO_8ImAsLrCMzUaOG1maANbjtCUxvtuQYN5OLa2zuQ/edit#gid=2001974161
+      </h5>
+    </div>
+    <div width="50%" style="text-align: center">
+      <iframe
+        width="920"
+        height="570"
+        style="border: 1px solid black"
+        seamless
+        frameborder="0"
+        scrolling="no"
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR88XdkWkibYs9pdP8y9o-Y2IjvEEFQ183NdyMMpStAgbLdwJHav_XdqahhlGCxLu_vsdYEL-O5ao8C/pubchart?oid=969510929&amp;format=interactive"
+      ></iframe>
+      <h5 style="text-align: center">
+        Fuente: Elaboración propia <br />
+        Enlace:
+        https://docs.google.com/spreadsheets/d/13WO_8ImAsLrCMzUaOG1maANbjtCUxvtuQYN5OLa2zuQ/edit#gid=1405607869
+      </h5>
+    </div>
+
+    <div width="50%" style="text-align: center"></div>
+  </div>
+</body>
